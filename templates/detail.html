@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        <title>go-todo-detail</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>title: {{ .TodoEntity.Title }}</h1>
+        <div>category: {{ .TodoEntity.Category }}</div>
+        <div>description: {{ .TodoEntity.Description }}</div>
+        <hr>
+        <h1>Edit</h1>
+        <form action="/todo/{{ .TodoEntity.ID }}" method="post" >
+            title: <input type="text" name="title"><br>
+            category: <input type="text" name="category"><br>
+            description: <input type="text" name="description"><br>
+            <input type="submit">
+        </form>
+    </body>
+</html>

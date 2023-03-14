@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+    <head>
+        <title>go-todo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Todos</h1>
+        <div>
+            {{ range .Todos }}
+            <form action="/todo/delete/{{ .ID }}" method="post">
+                <a href="/todo/{{ .ID }}">[{{ .Category }}]  {{ .Title }}   {{.CreatedAt}} {{.UpdatedAt}}</a> 
+                <input type="submit" value="delete">
+            </form>
+            <br>
+            {{ end }}
+        </div>
+        <hr>
+        <h1>Create</h1>
+        <form method="post">
+            title: <input type="text" name="title"><br>
+            category: <input type="text" name="category"><br>
+            description: <input type="text" name="description"><br>
+            <input type="submit">
+        </form>
+    </body>
+</html>
